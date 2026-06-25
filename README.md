@@ -12,7 +12,7 @@ Index terms from the paper: Secure ML Inference, Model Partitioning, ARM TrustZo
 
 ## Research Context
 
-This project was completed through The University of Texas at Dallas Undergraduate Research Apprenticeship Program (URAP). Madhav (Sai) Suri served as the research lead for the EnclaveSplit effort, driving the system design, TEE partitioning strategy, implementation, benchmark collection, and paper artifact preparation under the supervision of Dr. Yi Ding.
+This project was completed through The University of Texas at Dallas Undergraduate Research Apprenticeship Program (URAP). Madhav (Sai) Suri served as the research lead for the EnclaveSplit effort, driving the system design, TEE partitioning strategy, implementation, benchmark collection, and paper artifact preparation under the supervision of Dr. Yi Diing.
 
 The URAP work focused on making confidential edge inference practical rather than purely theoretical: identifying the Golden Partition Zone in representative ML workloads, building a normal-world/enclave split prototype, defining the Open Enclave SDK boundary contract, and collecting hardware-measured latency and privacy-evaluation results for the repository.
 
