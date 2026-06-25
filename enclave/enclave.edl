@@ -1,0 +1,24 @@
+/* EnclaveSplit Open Enclave EDL.
+ *
+ * This file is the normal-world / secure-world contract. It is intentionally
+ * small: the host provisions encrypted Golden Partition Zone weights and sends
+ * boundary activations; the enclave returns only the GPZ output.
+ */
+enclave {
+    trusted {
+        public int ecall_provision_weights(
+            [in, size=weights_len] const uint8_t* encrypted_weights,
+            size_t weights_len);
+
+        public int ecall_run_gpz(
+            [in, size=input_len] const float* input,
+            size_t input_len,
+            [out, size=output_cap] float* output,
+            size_t output_cap,
+            [out] size_t* output_len);
+    };
+
+    untrusted {
+        void ocall_log([in, string] const char* message);
+    };
+};
