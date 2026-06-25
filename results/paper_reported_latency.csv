@@ -1,0 +1,6 @@
+model,task,platform,hardware,baseline_latency_ms,split_latency_ms,overhead_pct,accuracy_loss_pct,actual_measurement,source,notes
+MobileNetV2,classification,TrustZone/OP-TEE,NVIDIA Jetson Orin Nano,,,9.8,0,false,paper_reported,"Paper-reported aggregate overhead; not a raw benchmark row from this repository."
+ResNet-18,classification,TrustZone/OP-TEE,NVIDIA Jetson Orin Nano,,,11.4,0,false,paper_reported,"Paper-reported aggregate overhead; not a raw benchmark row from this repository."
+YOLOv8n,object_detection,TrustZone/OP-TEE,NVIDIA Jetson Orin Nano,,,14.2,0,false,paper_reported,"Paper-reported aggregate overhead; not a raw benchmark row from this repository."
+DeepLabV3-MNetV3,semantic_segmentation,TrustZone/OP-TEE,NVIDIA Jetson Orin Nano,,,13.1,0,false,paper_reported,"Paper-reported aggregate overhead; not a raw benchmark row from this repository."
+TinyBERT,nlp_classification,TrustZone/OP-TEE,NVIDIA Jetson Orin Nano,,,11.0,0,false,paper_reported,"Paper-reported aggregate overhead; not a raw benchmark row from this repository."
