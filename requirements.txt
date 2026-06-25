@@ -1,0 +1,7 @@
+# Software reference path (any CPU). The hardware enclave path needs the
+# Open Enclave SDK + SGX2 / OP-TEE and is built separately (see enclave/).
+torch>=2.1
+torchvision>=0.16
+numpy>=1.24
+pyyaml>=6.0
+cryptography>=41.0

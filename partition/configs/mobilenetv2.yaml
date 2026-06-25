@@ -1,0 +1,11 @@
+# Golden Partition Zone config — MobileNetV2 (classification)
+model: mobilenetv2
+task: classification
+source: torchvision
+input_shape: [1, 3, 224, 224]
+# Enclave holds the final 1x1 conv + classifier.
+split:
+  enclave_from: features.18   # final 1x1 conv block
+  enclave_modules: [features.18, classifier]
+golden_partition_zone: features.18
+paper_overhead_pct: 9.8

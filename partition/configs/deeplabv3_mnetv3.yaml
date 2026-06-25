@@ -1,0 +1,11 @@
+# Golden Partition Zone config — DeepLabV3-MobileNetV3-Large (segmentation)
+model: deeplabv3_mobilenet_v3_large
+task: segmentation
+source: torchvision
+input_shape: [1, 3, 520, 520]
+# Enclave holds the ASPP classifier head.
+split:
+  enclave_from: classifier   # DeepLabHead (ASPP + classifier)
+  enclave_modules: [classifier]
+golden_partition_zone: aspp_classifier
+paper_overhead_pct: 13.1

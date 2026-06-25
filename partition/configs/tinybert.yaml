@@ -1,0 +1,11 @@
+# Golden Partition Zone config — TinyBERT (NLP)
+model: tinybert
+task: nlp
+source: huggingface         # e.g. huawei-noah/TinyBERT_General_4L_312D
+input_shape: [1, 128]       # token ids
+# Enclave holds the last encoder layer + pooler + classifier.
+split:
+  enclave_from: encoder.layer.last
+  enclave_modules: [encoder.layer.last, pooler, classifier]
+golden_partition_zone: last_encoder_layer
+paper_overhead_pct: 11.0
