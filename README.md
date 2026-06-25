@@ -10,6 +10,12 @@ EnclaveSplit places only the privacy-sensitive decision-level layers of a neural
 
 Index terms from the paper: Secure ML Inference, Model Partitioning, ARM TrustZone, Intel SGX, Edge Computing.
 
+## Research Context
+
+This project was completed through The University of Texas at Dallas Undergraduate Research Apprenticeship Program (URAP). Madhav (Sai) Suri served as the research lead for the EnclaveSplit effort, driving the system design, TEE partitioning strategy, implementation, benchmark collection, and paper artifact preparation under the supervision of Dr. Yi Ding.
+
+The URAP work focused on making confidential edge inference practical rather than purely theoretical: identifying the Golden Partition Zone in representative ML workloads, building a normal-world/enclave split prototype, defining the Open Enclave SDK boundary contract, and collecting hardware-measured latency and privacy-evaluation results for the repository.
+
 ## Repository Status
 
 This repository is a reproducibility template plus reference implementation. It includes:
@@ -207,7 +213,7 @@ The current design executes protected enclave layers on CPU. GPUs and NPUs remai
 
 ## Author Contribution
 
-Madhav (Sai) Suri designed, implemented, and evaluated EnclaveSplit under the supervision of Dr. Yi Ding.
+Madhav (Sai) Suri led this research through the UTD Undergraduate Research Apprenticeship Program, where he worked as research lead under the supervision of Dr. Yi Ding. His contributions included formulating the selective TEE partitioning approach, implementing the EnclaveSplit host/enclave prototype, defining model split configurations, running hardware-oriented evaluation, organizing the benchmark artifacts, and preparing the accompanying research paper materials.
 
 ## Citation
 
