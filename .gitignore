@@ -1,0 +1,17 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+# Build
+enclave/build/
+*.signed
+*.so
+*.o
+# Data / artifacts
+eval/results/*.png
+eval/results/*.json
+*.pt
+*.onnx
+weights/
+.DS_Store

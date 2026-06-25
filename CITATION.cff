@@ -1,0 +1,25 @@
+cff-version: 1.2.0
+message: "If you use EnclaveSplit, please cite the paper below."
+title: "Confidential ML Inference at the Untrusted Edge: Low-Overhead Trusted Execution with ARM TrustZone and Intel SGX"
+authors:
+  - family-names: Suri
+    given-names: "Madhav (Sai)"
+    affiliation: "The University of Texas at Dallas"
+abstract: >-
+  EnclaveSplit is a selective-partitioning method for confidential ML inference
+  that shields only the decision-level "Golden Partition Zone" layers of a model
+  inside a hardware enclave, running unchanged across Intel SGX and ARM TrustZone
+  via a single Open Enclave SDK codebase, at ~12% mean latency overhead with zero
+  accuracy loss.
+keywords:
+  - Secure ML Inference
+  - Model Partitioning
+  - ARM TrustZone
+  - Intel SGX
+  - Trusted Execution Environment
+  - Edge Computing
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.20840404
+date-released: 2025-01-01
+license: MIT
