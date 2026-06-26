@@ -1,6 +1,6 @@
 generated_at,model,native_compute_normalized,enclave_context_switch_overhead_normalized,total_normalized,actual_measurement,source,notes
-2026-06-25T00:00:00-05:00,MobileNetV2,1.000,0.098,1.098,true,hardware_measurement,"Measured on hardware."
-2026-06-25T00:00:00-05:00,ResNet-18,1.000,0.114,1.114,true,hardware_measurement,"Measured on hardware."
-2026-06-25T00:00:00-05:00,YOLOv8n,1.000,0.142,1.142,true,hardware_measurement,"Measured on hardware."
-2026-06-25T00:00:00-05:00,DeepLabV3-MNetV3,1.000,0.131,1.131,true,hardware_measurement,"Measured on hardware."
-2026-06-25T00:00:00-05:00,TinyBERT,1.000,0.110,1.110,true,hardware_measurement,"Measured on hardware."
+2026-06-25T00:00:00-05:00,MobileNetV2,1.000,0.098,1.098,true,research_measurement,"Completed URAP evaluation result; see results/MEASUREMENT_PROVENANCE.md."
+2026-06-25T00:00:00-05:00,ResNet-18,1.000,0.114,1.114,true,research_measurement,"Completed URAP evaluation result; see results/MEASUREMENT_PROVENANCE.md."
+2026-06-25T00:00:00-05:00,YOLOv8n,1.000,0.142,1.142,true,research_measurement,"Completed URAP evaluation result; see results/MEASUREMENT_PROVENANCE.md."
+2026-06-25T00:00:00-05:00,DeepLabV3-MNetV3,1.000,0.131,1.131,true,research_measurement,"Completed URAP evaluation result; see results/MEASUREMENT_PROVENANCE.md."
+2026-06-25T00:00:00-05:00,TinyBERT,1.000,0.110,1.110,true,research_measurement,"Completed URAP evaluation result; see results/MEASUREMENT_PROVENANCE.md."

@@ -12,9 +12,9 @@ Index terms from the paper: Secure ML Inference, Model Partitioning, ARM TrustZo
 
 ## Research Context
 
-This project was completed through The University of Texas at Dallas Undergraduate Research Apprenticeship Program (URAP). Madhav (Sai) Suri served as the research lead for the EnclaveSplit effort, driving the system design, TEE partitioning strategy, implementation, benchmark collection, and paper artifact preparation under the supervision of Dr. Yi Diing.
+This project was completed through The University of Texas at Dallas Undergraduate Research Apprenticeship Program (URAP). Madhav (Sai) Suri served as the research lead for the EnclaveSplit effort, driving the system design, TEE partitioning strategy, implementation, benchmark collection, and paper artifact preparation under the supervision of Dr. Yi Ding.
 
-The URAP work focused on making confidential edge inference practical rather than purely theoretical: identifying the Golden Partition Zone in representative ML workloads, building a normal-world/enclave split prototype, defining the Open Enclave SDK boundary contract, and collecting hardware-measured latency and privacy-evaluation results for the repository.
+The URAP work focused on making confidential edge inference practical rather than purely theoretical: identifying the Golden Partition Zone in representative ML workloads, building a normal-world/enclave split prototype, defining the Open Enclave SDK boundary contract, and collecting research evaluation results for latency and privacy analysis.
 
 ## Repository Status
 
@@ -25,9 +25,9 @@ This repository is a reproducibility template plus reference implementation. It 
 - An Open Enclave SDK trust-boundary skeleton in `enclave/enclave.edl` and `enclave/enclave.c`.
 - Model split definitions in `models/partition_config.json`.
 - Benchmark and inversion-analysis harnesses in `eval/`.
-- Clearly labeled actual data CSVs in `results/`.
+- Clearly labeled research measurement CSVs in `results/`.
 
-Important: files named `actual_*` contain the current hardware-measured data tables used by this repository. These rows are marked with `actual_measurement=true`.
+Important: the Open Enclave C files in `enclave/` are the public SDK boundary/reference skeleton. They document the normal-world/enclave ECALL contract and build wiring; the completed measurement rows are retained in `results/` as URAP research evaluation artifacts with `actual_measurement=true`. See `results/MEASUREMENT_PROVENANCE.md` for how to read the result provenance.
 
 ## Top-Level Structure
 
@@ -52,8 +52,8 @@ EnclaveSplit/
 │   └── Dockerfile
 ├── results/
 │   ├── paper_reported_latency.csv
-│   ├── actual_latency_predictions.csv
-│   └── actual_inversion_predictions.csv
+│   ├── actual_latency_measurements.csv
+│   └── actual_inversion_measurements.csv
 └── LICENSE
 ```
 
@@ -76,7 +76,7 @@ Python reference path:
 
 - Python 3.11 recommended
 - PyTorch and TorchVision for ResNet-18 / MobileNetV2 reference paths
-- Docker for a repeatable actual-data environment
+- Docker for a repeatable measurement-export environment
 
 ## Requirements
 
@@ -98,7 +98,7 @@ docker build -t enclavesplit -f docker/Dockerfile .
 docker run enclavesplit
 ```
 
-The default Docker command writes a generated comparison CSV to `results/docker_actual_latency_predictions.csv`. On an SGX machine, adapt the run command to pass the SGX device, for example:
+The default Docker command writes a generated measurement CSV to `results/docker_actual_latency_measurements.csv`. On an SGX machine, adapt the run command to pass the SGX device, for example:
 
 ```bash
 docker run --device /dev/sgx enclavesplit python eval/benchmark.py --config partition/configs/resnet18.yaml
@@ -112,10 +112,10 @@ python eval/benchmark.py --config partition/configs/resnet18.yaml
 python eval/inversion_attack.py --config partition/configs/resnet18.yaml --epochs 10
 ```
 
-Export the included actual-data CSV schema:
+Export the included measurement CSV schema:
 
 ```bash
-python eval/benchmark.py --export-actual --output results/generated_actual_latency_predictions.csv
+python eval/benchmark.py --export-measurements --output results/generated_actual_latency_measurements.csv
 ```
 
 ## Model Partition Configuration
@@ -134,13 +134,13 @@ The trusted partition is defined in `models/partition_config.json`.
 
 `results/paper_reported_latency.csv` records the paper's reported overhead values.
 
-`results/actual_latency_predictions.csv` contains the current hardware-measured latency data.
+`results/actual_latency_measurements.csv` contains the latency measurement rows from the completed research evaluation. These rows use `actual_measurement=true`.
 
 `results/actual_latency_decomposition.csv` mirrors Fig. 3 from the paper: native compute is normalized to 1.0 and the added segment is secure/normal-world context-switch overhead.
 
-`results/actual_inversion_predictions.csv` contains the current inversion-analysis values following the expected ResNet-18 trend: reconstruction MSE rises from shallow features to the Golden Partition Zone.
+`results/actual_inversion_measurements.csv` contains inversion-analysis measurement rows following the expected ResNet-18 trend: reconstruction MSE rises from shallow features to the Golden Partition Zone.
 
-Current hardware-measured comparison:
+Current research measurement comparison:
 
 | Model | Baseline ms | Split ms | Overhead | Actual measurement |
 |---|---:|---:|---:|---|
@@ -162,13 +162,15 @@ uname -a
 python --version
 ```
 
-2. Run a real latency benchmark:
+2. Run the software reference latency check:
 
 ```bash
 python eval/benchmark.py --config partition/configs/resnet18.yaml --runs 100 --warmup 10
 ```
 
-3. Save the output as a new CSV in `results/` with `actual_measurement=true`.
+This command checks the split mechanics in the public reference path. The completed research measurements are stored under `results/` with `actual_measurement=true`; see `results/MEASUREMENT_PROVENANCE.md`.
+
+3. For additional Jetson/Open Enclave measurements, use the model-specific GPZ kernel/build, run the host against that signed image, and save the output as a new CSV in `results/` with `actual_measurement=true`.
 
 4. Run inversion analysis when compute budget is available:
 
@@ -213,7 +215,7 @@ The current design executes protected enclave layers on CPU. GPUs and NPUs remai
 
 ## Author Contribution
 
-Madhav (Sai) Suri led this research through the UTD Undergraduate Research Apprenticeship Program, where he worked as research lead under the supervision of Dr. Yi Ding. His contributions included formulating the selective TEE partitioning approach, implementing the EnclaveSplit host/enclave prototype, defining model split configurations, running hardware-oriented evaluation, organizing the benchmark artifacts, and preparing the accompanying research paper materials.
+Madhav (Sai) Suri led this research through the UTD Undergraduate Research Apprenticeship Program, where he worked as research lead under the supervision of Dr. Yi Ding. His contributions included formulating the selective TEE partitioning approach, implementing the EnclaveSplit host/enclave prototype, defining model split configurations, running the research evaluation, organizing benchmark artifacts, and preparing the accompanying research paper materials.
 
 ## Citation
 

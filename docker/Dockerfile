@@ -14,4 +14,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
-CMD ["python", "eval/benchmark.py", "--export-actual", "--output", "results/docker_actual_latency_predictions.csv"]
+CMD ["python", "eval/benchmark.py", "--export-measurements", "--output", "results/docker_actual_latency_measurements.csv"]
